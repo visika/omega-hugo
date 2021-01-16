@@ -20,7 +20,7 @@
               <h3>{{ .content | markdownify }}</h3>
               {{ if .button.enable }}
               {{ with .button }}
-              <a href="{{ .link | absURL }}" class="hero-btn btn page-scroll">{{.label}}</a>
+              <a href="#{{.link}}" class="hero-btn btn page-scroll">{{.label}}</a>
               {{ end }}
               {{ end }}
             </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="col-12 text-center">
         <div class="scroll">
-          <h6>SCROLL</h6>
+          <h6>SCORRI</h6>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
 {{ with site.Data.homepage.mission }}
 <section class="mission" id="mission">
   <div class="bg">
-    <img src="{{`images/section-bg.jpg` | absURL}}" class="img-fluid" alt="section-bg">
+    <img src="{{ .back_image | absURL }}" class="img-fluid" alt="section-bg">
   </div>
   <div class="right-shape">
     <img src="{{`images/right-shape.png` | absURL}}" class="img-fluid" alt="right-shape">
@@ -59,7 +59,7 @@
 
           <div class="video image-reveal">
             <a class="video-play"
-              data-video="https://www.youtube.com/embed/{{.video_id}}?autoplay=1&showinfo=0&controls=0">
+              data-video="https://peertube.uno/videos/embed/{{.video_id}}?autoplay=1&title=0&warningTitle=0&peertubeLink=0">
               <img src="{{ .video_thumb | absURL }}" class="img-fluid" alt="video-thumb">
               <i class="fa fa-play"></i>
             </a>
@@ -106,7 +106,7 @@
 {{ with site.Data.homepage.product }}
 <section class="products" id="products">
   <div class="bg">
-    <img src="{{`images/section-bg-2.jpg` | absURL}}" class="img-fluid" alt="section-bg">
+    <img src="{{ .back_image | absURL }}" class="img-fluid" alt="section-bg">
   </div>
   <div class="left-shape">
     <img src="{{`images/left-shape.png` | absURL}}" class="img-fluid" alt="left-shape">
@@ -138,7 +138,7 @@
               <div class="content">
                 <h5>{{ .title | markdownify }}</h5>
                 <p>{{ .content | markdownify }}</p>
-                <a href="{{ .project_url | absURL }}">Learn More</a>
+                <a href="{{ .project_url | absURL }}">Visualizza progetto</a>
               </div>
             </div>
           </div>
@@ -171,7 +171,21 @@
   </div>
   <div class="map-div">
     {{ with site.Params.map }}
-    <div id="map" data-center-lat="{{.map_center_lat}}" data-center-lng="{{.map_center_lng}}" data-position-lat="{{.map_position_lat}}" data-position-lng="{{.map_position_lng}}" data-marker="{{.map_marker | absURL }}" data-name="{{site.Title}}"></div>
+    <div id="map">
+      <iframe
+      width="100%"
+      height="75%"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=14.095893502235414%2C40.83080624337234%2C14.101880192756653%2C40.833318687481466&amp;layer=mapnik&amp;marker=40.83183517989416%2C14.1012042760849"
+      style="border: 1px solid black"></iframe>
+      <br/>
+      <small><a
+        href="https://www.openstreetmap.org/?mlat=40.83184&amp;mlon=14.10120#map=18/40.83184/14.10120">
+        Visualizza mappa ingrandita</a></small>
+    </div>
     {{ end }}
     <div class="office">
       <div class="contents">
