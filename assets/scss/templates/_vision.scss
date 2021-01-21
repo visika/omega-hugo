@@ -88,9 +88,11 @@
             position: relative;
             max-width: 400px;
             overflow: hidden;
+	    color: cyan;
             // @extend .image-reveal;
             img{
                 width: 100%;
+		opacity: 0.4;
             }
             &:after{
                 background: #38396B;
